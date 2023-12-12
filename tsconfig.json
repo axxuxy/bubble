@@ -1,0 +1,15 @@
+{
+  "exclude": [
+    "vite.config.ts",
+    "dist"
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "target": "ES2015",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2015"
+    ]
+  }
+}
