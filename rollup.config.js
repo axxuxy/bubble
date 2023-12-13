@@ -8,11 +8,15 @@ export default defineConfig({
     dir: "dist",
     preserveModules: true,
     entryFileNames(_) {
-      const path = relative(__dirname, resolve(__dirname, _.name + ".js"));
-      console.log(_);
-      console.log(__dirname);
-      console.log(path);
-      return path;
+      const __ = _.name.split("/");
+      for (let index = 0; index < __.length; index++) {
+        if (__[index] !== "..") {
+          __.splice(0, index * 2);
+          continue;
+        }
+      }
+      _.name = __.join("/") + ".js";
+      return __.join("/") + ".js";
     }
   },
   plugins: [
