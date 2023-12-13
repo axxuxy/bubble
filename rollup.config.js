@@ -1,5 +1,6 @@
 import ts from "@rollup/plugin-typescript";
 import { defineConfig } from "rollup";
+import {resolve,relative} from "path";
 
 export default defineConfig({
   input: "src/index.ts",
@@ -7,8 +8,7 @@ export default defineConfig({
     dir: "dist",
     preserveModules: true,
     entryFileNames(_){
-      console.log(_);
-      return _;
+      return relative(__dirname,resolve(_.name)+".js")
     }
   },
   plugins: [
