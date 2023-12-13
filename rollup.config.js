@@ -9,6 +9,7 @@ export default defineConfig({
     preserveModules: true,
     entryFileNames(_) {
       const path = relative(__dirname, resolve(__dirname, _.name + ".js"));
+      console.log(__dirname);
       console.log(path);
       return path;
     }
