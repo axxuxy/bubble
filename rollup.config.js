@@ -1,16 +1,17 @@
 import ts from "@rollup/plugin-typescript";
 import { defineConfig } from "rollup";
+import { resolve } from "path";
 
 export default defineConfig({
-  input: "./src/index.ts",
+  input: resolve(__dirname, "src/index.ts"),
   output: {
-    dir: "./dist",
+    dir: resolve(__dirname, "dist"),
     preserveModules: true,
   },
   plugins: [
     ts({
       declaration: true,
-      declarationDir: "./dist/types",
+      declarationDir: resolve(__dirname, "dist/types"),
       rootDir: "src"
     })
   ],

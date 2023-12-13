@@ -7,8 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
-    "build": "rollup -c",
-    "postinstall": "rollup -c"
+    "build": "rollup -c --bundleConfigAsCjs",
+    "postinstall": "rollup -c --bundleConfigAsCjs"
   },
   "exports": {
     ".": {
