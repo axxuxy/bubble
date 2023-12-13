@@ -96,25 +96,29 @@ export abstract class Canvas {
     });
   }
 
-  private _animation?: ReturnType<typeof requestAnimationFrame>;
+  private _animationKey?: ReturnType<typeof requestAnimationFrame>;
   /** Is runing animation. */
   get isAnimation() {
-    return this._animation !== undefined;
+    return this._animationKey !== undefined;
+  }
+  private _animation() {
+    this.updateCanvas();
+    this._animationKey = requestAnimationFrame(() => {
+      this._animation();
+    });
   }
 
   /** Run animation. */
   animation() {
-    this.updateCanvas();
-    this._animation = requestAnimationFrame(() => {
-      this.animation();
-    });
+    if (this._animationKey) throw new Error("The canvas is runing amimation.");
+    this._animation();
   }
 
   /** Stop animation. */
   stopAnimation() {
-    if (!this._animation) throw new Error("not have animation.");
-    cancelAnimationFrame(this._animation);
-    this._animation = undefined;
+    if (!this._animationKey) throw new Error("The canvas not runing animation.");
+    cancelAnimationFrame(this._animationKey);
+    this._animationKey = undefined;
   }
 }
 
