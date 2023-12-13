@@ -6,7 +6,10 @@ export default defineConfig({
   output: {
     dir: "dist",
     preserveModules: true,
-    entryFileNames: "[name].js"
+    entryFileNames(_){
+      console.log(_);
+      return _;
+    }
   },
   plugins: [
     ts({
