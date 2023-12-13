@@ -8,8 +8,9 @@ export default defineConfig({
     dir: "dist",
     preserveModules: true,
     entryFileNames(_) {
-      console.log(relative(__dirname, resolve(__dirname, _.name, ".js")));
-      return relative(__dirname, resolve(_.name) + ".js");
+      const path = relative(__dirname, resolve(__dirname, _.name, ".js"));
+      console.log(path);
+      return path;
     }
   },
   plugins: [
