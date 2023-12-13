@@ -8,7 +8,7 @@ export default defineConfig({
     dir: "dist",
     preserveModules: true,
     entryFileNames(_) {
-      const path = relative(__dirname, resolve(__dirname, _.name, ".js"));
+      const path = relative(__dirname, resolve(__dirname, _.name + ".js"));
       console.log(path);
       return path;
     }
