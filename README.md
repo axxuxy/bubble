@@ -3,13 +3,13 @@
 
 pnpm
 ```
-pnpm install https://github.com/axxuxy/ax-image.git
+pnpm install https://github.com/axxuxy/bubble.git
 ```
 npm
 ```
-npm install https://github.com/axxuxy/ax-image.git
+npm install https://github.com/axxuxy/bubble.git
 ```
 yarn
 ```
-yarn add https://github.com/axxuxy/ax-image.git
+yarn add https://github.com/axxuxy/bubble.git
 ```
