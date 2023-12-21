@@ -13,7 +13,7 @@ export class WebBubbleCanvas extends AutoBubbleCanvas {
     super(param);
     this.resetSizeAutoComputed();
     this.canvas.addEventListener("click", ev => {
-      this.removeBubbleByPosition(ev.x, ev.y);
+      this.removeBubbleByPosition(ev.offsetX, ev.offsetY);
     });
   }
 
